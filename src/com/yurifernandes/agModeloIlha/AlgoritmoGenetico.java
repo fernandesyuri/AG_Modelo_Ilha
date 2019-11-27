@@ -47,8 +47,7 @@ public class AlgoritmoGenetico {
         }
     }
 
-    private void inicializarPopulacao(int tamanhoPopulacao,
-            double intervalo[],
+    private void inicializarPopulacao(int tamanhoPopulacao, double intervalo[],
             int precisao) {
         Random r = new Random();
 
