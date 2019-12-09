@@ -3,12 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/yurib/Documents/NetBeansProjects/Interdisciplinar-SD-TSI-GP/src/com/yurifernandes/agModeloIlha/IndividuoDecimal.java</file>
-            <file>file:/C:/Users/yurib/Documents/NetBeansProjects/Interdisciplinar-SD-TSI-GP/src/com/yurifernandes/agModeloIlha/IndividuoBinario.java</file>
-            <file>file:/C:/Users/yurib/Documents/NetBeansProjects/Interdisciplinar-SD-TSI-GP/src/com/yurifernandes/agModeloIlha/Main.java</file>
-            <file>file:/C:/Users/yurib/Documents/NetBeansProjects/Interdisciplinar-SD-TSI-GP/src/com/yurifernandes/agModeloIlha/AlgoritmoGenetico.java</file>
-            <file>file:/C:/Users/yurib/Documents/NetBeansProjects/Interdisciplinar-SD-TSI-GP/src/com/yurifernandes/agModeloIlha/Operacoes.java</file>
-            <file>file:/C:/Users/yurib/Documents/NetBeansProjects/Interdisciplinar-SD-TSI-GP/src/com/yurifernandes/agModeloIlha/Teste.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/AG_Modelo_Ilha-master/src/com/yurifernandes/agModeloIlha/IlhaUniforme.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/AG_Modelo_Ilha-master/src/com/yurifernandes/agModeloIlha/Operacoes.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/AG_Modelo_Ilha-master/src/com/yurifernandes/agModeloIlha/Ilha2Pontos.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/AG_Modelo_Ilha-master/src/com/yurifernandes/agModeloIlha/Main.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/AG_Modelo_Ilha-master/src/com/yurifernandes/agModeloIlha/AlgoritmoGenetico.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/AG_Modelo_Ilha-master/src/com/yurifernandes/agModeloIlha/IlhaPoliamor.java</file>
         </group>
     </open-files>
 </project-private>

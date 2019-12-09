@@ -19,4 +19,5 @@ public abstract class Individuo<T, E> {
     public abstract double getAptidao();
 
     public abstract void mostrarIndividuo();
+
 }

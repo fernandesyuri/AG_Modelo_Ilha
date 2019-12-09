@@ -30,8 +30,7 @@ public class IndividuoBinario extends Individuo<int[], Double> {
         }
         int n = cromossomo.length;
         Locale.setDefault(Locale.ENGLISH);
-        fenotipo = intervalo[0]
-                + ((intervalo[1] - intervalo[0]) / (Math.pow(2, n) - 1)) * xChapeu;
+        fenotipo = intervalo[0] + ((intervalo[1] - intervalo[0]) / (Math.pow(2, n) - 1)) * xChapeu;
         fenotipo = Double.valueOf(String.format("%." + precisao + "f", fenotipo));
         //System.out.println(fenotipo);
         return fenotipo;
@@ -43,7 +42,9 @@ public class IndividuoBinario extends Individuo<int[], Double> {
 
     @Override
     public double getAptidao() {
-        return 1 / (Math.pow(getFenotipo(), 2) + 0.001);
+        //return 1 / (Math.pow(getFenotipo(), 2) + 0.001);
+        double x = getFenotipo();
+        return -1 * (x * Math.sin(10 * x * Math.PI) + 1);
     }
 
     // Método para retornar o tamanho do cromossomo.

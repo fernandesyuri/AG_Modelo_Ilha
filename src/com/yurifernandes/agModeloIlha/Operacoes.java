@@ -31,7 +31,71 @@ public class Operacoes {
         return new IndividuoBinario[]{ni1, ni2};
 
     }
+    
+    public IndividuoBinario[] crossover2pontos(
+            IndividuoBinario i1,
+            IndividuoBinario i2) {
 
+        int tam = i1.getTamanhoCromossomo();
+
+        Random r = new Random();
+        int pontoCorte1 = r.nextInt(tam);
+        int pontoCorte2 = pontoCorte1 + r.nextInt(tam - pontoCorte1);
+
+        IndividuoBinario ni1 = i1.clonar();
+        IndividuoBinario ni2 = i2.clonar();
+
+        for (int i = pontoCorte1; i < pontoCorte2; ++i) {
+            ni1.setGene(i, i2.getGene(i));
+            ni2.setGene(i, i1.getGene(i));
+        }
+
+        return new IndividuoBinario[]{ni1, ni2};
+
+    }
+
+    public IndividuoBinario[] crossoverPoliamor(
+            IndividuoBinario i1,
+            IndividuoBinario i2,
+            IndividuoBinario i3) {
+
+        int tam = i1.getTamanhoCromossomo();
+
+        IndividuoBinario ni = i1.clonar();
+
+        for (int i = 0; i < tam; ++i) {
+            if(i1.getGene(i) == i2.getGene(i)){
+                ni.setGene(i, i1.getGene(i));
+            }else{
+                ni.setGene(i, i3.getGene(i));
+            }
+        }
+
+        return new IndividuoBinario[]{ni};
+
+    }
+    
+    public IndividuoBinario[] crossoverUniforme(
+            IndividuoBinario i1,
+            IndividuoBinario i2) {
+
+        int tam = i1.getTamanhoCromossomo();
+
+        Random r = new Random();
+
+        IndividuoBinario ni1 = i1.clonar();
+        IndividuoBinario ni2 = i2.clonar();
+
+        for (int i = 0; i < tam; ++i) {
+            if(r.nextBoolean()){
+                ni1.setGene(i, i2.getGene(i));
+                ni2.setGene(i, i1.getGene(i));
+            }
+        }
+
+        return new IndividuoBinario[]{ni1, ni2};
+
+    }
     // Método para efetuar a mutação sobre um indivíduo
     // o parâmetro probabilidade assume um valor [0,100]
     public void mutacao(IndividuoBinario individuo,
@@ -53,7 +117,52 @@ public class Operacoes {
         }
 
     }
+    
+    public void mutacaoEmRajada(IndividuoBinario individuo,
+            int probabilidade) {
 
+        if(individuo.getTamanhoCromossomo() < 15){
+            this.mutacao(individuo, probabilidade);
+            return;
+        }
+        
+        Random r = new Random();
+
+        int valorAleatorio = r.nextInt(101);
+        if (probabilidade >= valorAleatorio) {
+            int tam = individuo.getTamanhoCromossomo();
+            int pos = r.nextInt(tam-5);
+            for(int i = pos; i < pos + 5; i++){
+                individuo.setGene(i, r.nextInt(2));
+            }
+
+        }
+
+    }
+    
+    public Individuo torneio(ArrayList<Individuo> populacao) {
+        Random r = new Random();
+        
+        ArrayList<Individuo> torneio = new ArrayList();
+        for(int i = 0; i < populacao.size() / 20; i++){
+            double valorAleatorio = r.nextInt(populacao.size());
+            torneio.add(populacao.get(i));
+        }
+        
+        double aptidaoAtual = torneio.get(0).getAptidao();
+        Individuo escolhido = torneio.get(0);
+        torneio.remove(0);
+        
+        for (Individuo i : torneio) {
+            if(i.getAptidao() > aptidaoAtual){
+                escolhido = i;
+            }
+        }
+        
+        //System.out.println(escolhido);
+        return escolhido;
+    }
+    
     // Método da Roleta para determinar os indivíduos mais aptos
     public Individuo roleta(ArrayList<Individuo> populacao) {
         double aptidaoTotal = 0.0;

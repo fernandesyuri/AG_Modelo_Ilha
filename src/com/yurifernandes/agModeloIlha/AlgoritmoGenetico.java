@@ -9,32 +9,34 @@ import java.util.Random;
  */
 public class AlgoritmoGenetico {
 
-    private ArrayList<Individuo> populacao;
-    private final int probabilidadeMutacao;
+    protected ArrayList<Individuo> populacao;
+    protected int probabilidadeMutacao;
 
-    public AlgoritmoGenetico(int tamanhoPopulacao,
+    public AlgoritmoGenetico(int tamanhoPopulacao, //populacao minima = 40
             int probabilidadeMutacao,
             double intervalo[],
             int precisao
     ) {
         populacao = new ArrayList<>();
         this.probabilidadeMutacao = probabilidadeMutacao;
+        if(tamanhoPopulacao < 40) tamanhoPopulacao = 40;
         inicializarPopulacao(tamanhoPopulacao, intervalo, precisao);
     }
 
     public void evoluir(int numGeracoes) {
         Operacoes op = new Operacoes();
         while (numGeracoes > 0) {
-            System.out.println("Geração (" + numGeracoes + ")");
+            //System.out.println("Geração (" + numGeracoes + ")");
             ArrayList<Individuo> novaPopulacao = new ArrayList<Individuo>();
             while (novaPopulacao.size() < populacao.size()) {
-                IndividuoBinario i1 = (IndividuoBinario) op.roleta(populacao);
-                IndividuoBinario i2 = (IndividuoBinario) op.roleta(populacao);
+                IndividuoBinario i1 = (IndividuoBinario) op.torneio(populacao);
+                IndividuoBinario i2 = (IndividuoBinario) op.torneio(populacao);
+                //System.out.println(i1 + " " + i2);
                 IndividuoBinario filhos[] = op.crossover(i1, i2);
-                op.mutacao(filhos[0], probabilidadeMutacao);
-                op.mutacao(filhos[1], probabilidadeMutacao);
-                novaPopulacao.add(filhos[0]);
-                novaPopulacao.add(filhos[1]);
+                for (IndividuoBinario filho : filhos) {
+                    op.mutacao(filho, probabilidadeMutacao);
+                    novaPopulacao.add(filho);
+                }
             }
             populacao = novaPopulacao;
             numGeracoes--;
@@ -47,7 +49,7 @@ public class AlgoritmoGenetico {
         }
     }
 
-    private void inicializarPopulacao(int tamanhoPopulacao, double intervalo[],
+    void inicializarPopulacao(int tamanhoPopulacao, double intervalo[],
             int precisao) {
         Random r = new Random();
 

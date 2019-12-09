@@ -12,26 +12,47 @@ package com.yurifernandes.agModeloIlha;
 public class Main {
 
     public static void main(String args[]) {
-        /*int c1[] = new int[]{1,0,0,1,0};
-        int c2[] = new int[]{0,0,1,0,1};
         
-        IndividuoBinario i1 = new IndividuoBinario(c1);
-        IndividuoBinario i2 = new IndividuoBinario(c2);
+        /*
+            AO CRIAR UMA ILHA ESCOLHA QUAL ALGORITMO USAR
+                basta instanciar a classe escolhida
         
-        Operacoes op = new Operacoes();
+            OPÇÕES:
+            
+                1 - AlgoritmoGenetico
+                    Crossover de corte de 1 ponto, mutação de 1 gene.
         
-        IndividuoBinario novos[] = op.crossover(i1, i2);
+                2 - Ilha2Pontos
+                    Crossover de corte de 2 pontos, mutação de 1 gene.
         
-        novos[0].mostrarIndividuo();
-        //novos[1].mostrarIndividuo();
+                3 - IlhaPoliamor
+                    Crossover de 3 progenitores, mutação de 1 gene
+                    Para cada gene, o que estiver presente em pelo menos 2
+                    dos progenitores é escolhido para o indivíduo gerado.
+                    Apenas 1 individuo é gerado no crossover.
         
-        op.mutacao(novos[0], 7);
+                4 - Ilha Uniforme
+                    Crossover uniforme, mutação de 1 gene
+                    É sorteado para cada gene, qual progenitor vai concedê-lo
+                    para qual dos filhos, isoladamente
         
-        novos[0].mostrarIndividuo();*/
-        AlgoritmoGenetico ag = new AlgoritmoGenetico(100, 7, new double[]{-2, 2}, 7);
+                5 - IlhaTchernobyl
+                    Crossover de corte de 1 ponto, mutação de rajada em 5 genes vizinhos
+                    Quando a mutação acontece ela afeta até 5 genes consecutivos, mas ela
+                    não é uma mudança garantida, ao invés de inverter o valor do gene
+                    um novo valor é sorteado, podendo ser igual ao anterior ou não.
+                    Cada um dos 5 gentes escolhidos tem aproximadamente 50% de chance de mutar.
+                    
+            PARAMETROS PARA QUALQUER UM DOS ALGORITMOS:
+                
+                (Tamanho da população, probabilidade de mutação, intervalo[], precisao)
+        
+        */
+        
+        AlgoritmoGenetico ag = new IlhaPoliamor(100, 7, new double[]{-1, 2}, 8);
         
         ag.mostrarPopulacao();
-        ag.evoluir(200);
+        ag.evoluir(2000);
         ag.mostrarPopulacao();
 
     }
