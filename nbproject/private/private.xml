@@ -3,12 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/AG_Modelo_Ilha-master/src/com/yurifernandes/agModeloIlha/IlhaUniforme.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/AG_Modelo_Ilha-master/src/com/yurifernandes/agModeloIlha/Operacoes.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/AG_Modelo_Ilha-master/src/com/yurifernandes/agModeloIlha/Ilha2Pontos.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/AG_Modelo_Ilha-master/src/com/yurifernandes/agModeloIlha/Main.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/AG_Modelo_Ilha-master/src/com/yurifernandes/agModeloIlha/AlgoritmoGenetico.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/AG_Modelo_Ilha-master/src/com/yurifernandes/agModeloIlha/IlhaPoliamor.java</file>
+            <file>file:/Users/yuriborghi/Documents/AG_Modelo_Ilha/src/com/yurifernandes/agModeloIlha/Main.java</file>
+            <file>file:/Users/yuriborghi/Documents/AG_Modelo_Ilha/src/com/yurifernandes/agModeloIlha/Operacoes.java</file>
+            <file>file:/Users/yuriborghi/Documents/AG_Modelo_Ilha/src/testeRMI/CalculatorClient.java</file>
+            <file>file:/Users/yuriborghi/Documents/AG_Modelo_Ilha/src/com/yurifernandes/agModeloIlha/IndividuoBinario.java</file>
+            <file>file:/Users/yuriborghi/Documents/AG_Modelo_Ilha/src/testeRMI/Calculator.java</file>
+            <file>file:/Users/yuriborghi/Documents/AG_Modelo_Ilha/src/testeRMI/CalculatorServer.java</file>
+            <file>file:/Users/yuriborghi/Documents/AG_Modelo_Ilha/src/testeRMI/CalculatorImple.java</file>
+            <file>file:/Users/yuriborghi/Documents/AG_Modelo_Ilha/src/com/yurifernandes/agModeloIlha/Ilha.java</file>
+            <file>file:/Users/yuriborghi/Documents/AG_Modelo_Ilha/src/com/yurifernandes/agModeloIlha/IlhaUniforme.java</file>
+            <file>file:/Users/yuriborghi/Documents/AG_Modelo_Ilha/src/com/yurifernandes/agModeloIlha/AlgoritmoGenetico.java</file>
         </group>
     </open-files>
 </project-private>

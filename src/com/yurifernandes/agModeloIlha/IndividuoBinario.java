@@ -84,4 +84,18 @@ public class IndividuoBinario extends Individuo<int[], Double> {
 
         System.out.println();
     }
+
+    @Override
+    public int compareTo(Object o) {
+
+        double este = Math.abs(this.getAptidao());
+        double outro = Math.abs(((IndividuoBinario) o).getAptidao());
+
+        if (este < outro) {
+            return 1;
+        } else if (este > outro) {
+            return -1;
+        }
+        return 0;
+    }
 }

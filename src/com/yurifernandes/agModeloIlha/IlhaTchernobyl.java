@@ -1,28 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.yurifernandes.agModeloIlha;
 
+import java.net.MalformedURLException;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-/**
- *
- * @author user
- */
-public class IlhaTchernobyl extends AlgoritmoGenetico{
-    
+public class IlhaTchernobyl extends AlgoritmoGenetico {
+
     //Ilha com mutação em cluster, também é recomendado usar uma taxa de mutação mais alta nela
-    
     public IlhaTchernobyl(int tamanhoPopulacao, //populacao minima = 40
             int probabilidadeMutacao,
             double intervalo[],
             int precisao
-    ) {
+    ) throws RemoteException, MalformedURLException {
         super(tamanhoPopulacao, probabilidadeMutacao, intervalo, precisao);
     }
-    
+
+    public static void main(String[] args) throws RemoteException, MalformedURLException {
+        AlgoritmoGenetico ag = new IlhaTchernobyl(100, 7, new double[]{-1, 2}, 8);
+        ag.rmiBind("127.0.0.1", 2025, "IlhaTchernobyl");
+        ag.setIlhaVizinha("127.0.0.1", 2021, "AlgoritmoGenetico");
+    }
+
     @Override
     public void evoluir(int numGeracoes) {
         Operacoes op = new Operacoes();
@@ -43,5 +41,4 @@ public class IlhaTchernobyl extends AlgoritmoGenetico{
             numGeracoes--;
         }
     }
-    
 }

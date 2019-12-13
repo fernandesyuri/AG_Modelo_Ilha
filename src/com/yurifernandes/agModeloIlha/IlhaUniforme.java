@@ -1,26 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.yurifernandes.agModeloIlha;
 
+import java.net.MalformedURLException;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-/**
- *
- * @author user
- */
 public class IlhaUniforme extends AlgoritmoGenetico {
-    
+
     public IlhaUniforme(int tamanhoPopulacao, //populacao minima = 40
             int probabilidadeMutacao,
             double intervalo[],
             int precisao
-    ) {
+    ) throws RemoteException, MalformedURLException {
         super(tamanhoPopulacao, probabilidadeMutacao, intervalo, precisao);
     }
-    
+
+    public static void main(String[] args) throws RemoteException, MalformedURLException {
+        AlgoritmoGenetico ag = new IlhaUniforme(100, 7, new double[]{-1, 2}, 8);
+        ag.rmiBind("127.0.0.1", 2024, "IlhaUniforme");
+        ag.setIlhaVizinha("127.0.0.1", 2025, "IlhaTchernobyl");
+    }
+
+    @Override
     public void evoluir(int numGeracoes) {
         Operacoes op = new Operacoes();
         while (numGeracoes > 0) {
@@ -40,5 +40,4 @@ public class IlhaUniforme extends AlgoritmoGenetico {
             numGeracoes--;
         }
     }
-    
 }

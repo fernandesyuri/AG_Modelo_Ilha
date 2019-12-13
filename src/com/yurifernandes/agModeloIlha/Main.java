@@ -1,9 +1,11 @@
 /*
 Objetivo: encontrar o valor de x que gera o menor valor de y, na função abaixo:
   f (x) = x × sin(10 × x × π) + 1, x ∈ [−1, 2]
-*/
-
+ */
 package com.yurifernandes.agModeloIlha;
+
+import java.net.MalformedURLException;
+import java.rmi.RemoteException;
 
 /**
  *
@@ -11,8 +13,8 @@ package com.yurifernandes.agModeloIlha;
  */
 public class Main {
 
-    public static void main(String args[]) {
-        
+    public static void main(String args[]) throws RemoteException, MalformedURLException {
+
         /*
             AO CRIAR UMA ILHA ESCOLHA QUAL ALGORITMO USAR
                 basta instanciar a classe escolhida
@@ -31,7 +33,7 @@ public class Main {
                     dos progenitores é escolhido para o indivíduo gerado.
                     Apenas 1 individuo é gerado no crossover.
         
-                4 - Ilha Uniforme
+                4 - IlhaUniforme
                     Crossover uniforme, mutação de 1 gene
                     É sorteado para cada gene, qual progenitor vai concedê-lo
                     para qual dos filhos, isoladamente
@@ -47,14 +49,11 @@ public class Main {
                 
                 (Tamanho da população, probabilidade de mutação, intervalo[], precisao)
         
-        */
-        
-        AlgoritmoGenetico ag = new IlhaPoliamor(100, 7, new double[]{-1, 2}, 8);
-        
-        ag.mostrarPopulacao();
-        ag.evoluir(2000);
-        ag.mostrarPopulacao();
+         */
+        AlgoritmoGenetico ag = new AlgoritmoGenetico(100, 7, new double[]{-1, 2}, 8);
 
+        ag.mostrarPopulacao();
+        ag.evoluir(100);
+        ag.mostrarPopulacao();
     }
-
 }
